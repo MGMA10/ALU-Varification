@@ -1,5 +1,7 @@
 # Verification Plan for Sequential ALU
 
+**You Can find the Simulation Here :** [Simulation at EDAplayground](https://www.edaplayground.com/x/UWbF)
+
 ## 1. Inputs and Outputs
 
 - **Inputs:**
