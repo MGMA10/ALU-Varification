@@ -2,6 +2,10 @@
 
 This project demonstrates testing an Arithmetic Logic Unit (ALU) using a coroutine-based testbench written in Cocotb. The ALU is a sequential design implemented in SystemVerilog, and the testbench is responsible for verifying its correct functionality under different operations. Each arithmetic or logical operation is tested independently inside its coroutine.
 
+**Simulation**
+
+[Simulation EDA Playground](https://www.edaplayground.com/x/Mf26)
+
 ## Design Overview
 
 ### ALU Module (RTL)
