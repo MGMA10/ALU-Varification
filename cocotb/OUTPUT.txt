@@ -1,0 +1,719 @@
+[2024-09-19 17:32:48 UTC] make 
+rm -f results.xml
+make -f makefile results.xml
+make[1]: Entering directory `/home/runner'
+mkdir -p sim_build
+rm -f results.xml
+# Make sure all libs in SOURCES_VHDL_* are mentioned in VHDL_LIB_ORDER and vice versa
+set -o pipefail; \
+MODULE=tb              TESTCASE= TOPLEVEL=Sequential_ALU  GPI_EXTRA= TOPLEVEL_LANG=verilog \
+ /xcelium23.09/tools.lnx86/bin/xrun -timescale 1ns/1ps \
+  -licqueue -64 -xmlibdirpath sim_build -plinowarn  -top Sequential_ALU  -loadvpi /usr/local/lib64/python3.6/site-packages/cocotb/libs/libcocotbvpi_ius.so:vlog_startup_routines_bootstrap  -access +rwc -createdebugdb   /home/runner/design.sv  2>&1 | tee sim_build/sim.log
+TOOL:	xrun(64)	23.09-s001: Started on Sep 19, 2024 at 13:32:53 EDT
+xrun(64): 23.09-s001: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
+file: /home/runner/design.sv
+	module worklib.Sequential_ALU:sv
+		errors: 0, warnings: 0
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:78   in set_program_name_in_venv        Did not detect Python virtual environment. Using system-wide Python interpreter
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:101  in gpi_print_registered_impl       VPI registered
+	Elaborating the design hierarchy:
+	Top level design units:
+		Sequential_ALU
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.Sequential_ALU:sv <0x0fb1cc4f>
+			streams:   2, words:  1322
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Generating Debug Data:
+		LWD Database path: (/home/runner/sim_build/xcelium.d/worklib/Sequential_ALU/sv/debug_db/Sequential_ALU)
+		Power Aware Instances:                    0
+		Liberty Instances:                        0
+		Out Of Module References:                 0
+		Assertions:                               0
+		Liberty Information:
+			PG Pins:	                  0
+			Liberty Pins:	                  0
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 1       1
+		Registers:               1       1
+		Scalar wires:            2       -
+		Vectored wires:          3       -
+		Always blocks:           1       1
+		Process Clocks:          1       1
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.Sequential_ALU:sv
+Loading snapshot worklib.Sequential_ALU:sv .................... Done
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:78   in set_program_name_in_venv        Did not detect Python virtual environment. Using system-wide Python interpreter
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:101  in gpi_print_registered_impl       VPI registered
+xcelium> source /xcelium23.09/tools/xcelium/files/xmsimrc
+xcelium> run
+     0.00ns INFO     cocotb                             Running on xmsim(64) version 23.09-s001
+     0.00ns INFO     cocotb                             Running tests with cocotb v1.8.1 from /usr/local/lib64/python3.6/site-packages/cocotb
+     0.00ns INFO     cocotb                             Seeding Python random module with 1726767175
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb.regression                  Found test tb.test_alu
+     0.00ns INFO     cocotb.regression                  running test_alu (1/1)
+                                                          Main test for ALU with random inputs.
+ADD Test PASS: 112 + 18 = 010000010
+SUB Test PASS: 112 - 18 = 001011110
+AND Test PASS: 112 & 18 = 000010000
+OR Test PASS: 112 | 18 = 001110010
+XOR Test PASS: 112 ^ 18 = 001100010
+Default Test PASS: 112 ? 18 = 000000000
+ADD Test PASS: 103 + 70 = 010101101
+SUB Test PASS: 103 - 70 = 000100001
+AND Test PASS: 103 & 70 = 001000110
+OR Test PASS: 103 | 70 = 001100111
+XOR Test PASS: 103 ^ 70 = 000100001
+Default Test PASS: 103 ? 70 = 000000000
+ADD Test PASS: 24 + 133 = 010011101
+SUB Test PASS: 24 - 133 = 110010011
+AND Test PASS: 24 & 133 = 000000000
+OR Test PASS: 24 | 133 = 010011101
+XOR Test PASS: 24 ^ 133 = 010011101
+Default Test PASS: 24 ? 133 = 000000000
+ADD Test PASS: 122 + 245 = 101101111
+SUB Test PASS: 122 - 245 = 110000101
+AND Test PASS: 122 & 245 = 001110000
+OR Test PASS: 122 | 245 = 011111111
+XOR Test PASS: 122 ^ 245 = 010001111
+Default Test PASS: 122 ? 245 = 000000000
+ADD Test PASS: 192 + 107 = 100101011
+SUB Test PASS: 192 - 107 = 001010101
+AND Test PASS: 192 & 107 = 001000000
+OR Test PASS: 192 | 107 = 011101011
+XOR Test PASS: 192 ^ 107 = 010101011
+Default Test PASS: 192 ? 107 = 000000000
+ADD Test PASS: 220 + 9 = 011100101
+SUB Test PASS: 220 - 9 = 011010011
+AND Test PASS: 220 & 9 = 000001000
+OR Test PASS: 220 | 9 = 011011101
+XOR Test PASS: 220 ^ 9 = 011010101
+Default Test PASS: 220 ? 9 = 000000000
+ADD Test PASS: 176 + 201 = 101111001
+SUB Test PASS: 176 - 201 = 111100111
+AND Test PASS: 176 & 201 = 010000000
+OR Test PASS: 176 | 201 = 011111001
+XOR Test PASS: 176 ^ 201 = 001111001
+Default Test PASS: 176 ? 201 = 000000000
+ADD Test PASS: 27 + 213 = 011110000
+SUB Test PASS: 27 - 213 = 101000110
+AND Test PASS: 27 & 213 = 000010001
+OR Test PASS: 27 | 213 = 011011111
+XOR Test PASS: 27 ^ 213 = 011001110
+Default Test PASS: 27 ? 213 = 000000000
+ADD Test PASS: 4 + 98 = 001100110
+SUB Test PASS: 4 - 98 = 110100010
+AND Test PASS: 4 & 98 = 000000000
+OR Test PASS: 4 | 98 = 001100110
+XOR Test PASS: 4 ^ 98 = 001100110
+Default Test PASS: 4 ? 98 = 000000000
+ADD Test PASS: 195 + 136 = 101001011
+SUB Test PASS: 195 - 136 = 000111011
+AND Test PASS: 195 & 136 = 010000000
+OR Test PASS: 195 | 136 = 011001011
+XOR Test PASS: 195 ^ 136 = 001001011
+Default Test PASS: 195 ? 136 = 000000000
+ADD Test PASS: 160 + 177 = 101010001
+SUB Test PASS: 160 - 177 = 111101111
+AND Test PASS: 160 & 177 = 010100000
+OR Test PASS: 160 | 177 = 010110001
+XOR Test PASS: 160 ^ 177 = 000010001
+Default Test PASS: 160 ? 177 = 000000000
+ADD Test PASS: 85 + 35 = 001111000
+SUB Test PASS: 85 - 35 = 000110010
+AND Test PASS: 85 & 35 = 000000001
+OR Test PASS: 85 | 35 = 001110111
+XOR Test PASS: 85 ^ 35 = 001110110
+Default Test PASS: 85 ? 35 = 000000000
+ADD Test PASS: 254 + 148 = 110010010
+SUB Test PASS: 254 - 148 = 001101010
+AND Test PASS: 254 & 148 = 010010100
+OR Test PASS: 254 | 148 = 011111110
+XOR Test PASS: 254 ^ 148 = 001101010
+Default Test PASS: 254 ? 148 = 000000000
+ADD Test PASS: 181 + 1 = 010110110
+SUB Test PASS: 181 - 1 = 010110100
+AND Test PASS: 181 & 1 = 000000001
+OR Test PASS: 181 | 1 = 010110101
+XOR Test PASS: 181 ^ 1 = 010110100
+Default Test PASS: 181 ? 1 = 000000000
+ADD Test PASS: 29 + 72 = 001100101
+SUB Test PASS: 29 - 72 = 111010101
+AND Test PASS: 29 & 72 = 000001000
+OR Test PASS: 29 | 72 = 001011101
+XOR Test PASS: 29 ^ 72 = 001010101
+Default Test PASS: 29 ? 72 = 000000000
+ADD Test PASS: 146 + 163 = 100110101
+SUB Test PASS: 146 - 163 = 111101111
+AND Test PASS: 146 & 163 = 010000010
+OR Test PASS: 146 | 163 = 010110011
+XOR Test PASS: 146 ^ 163 = 000110001
+Default Test PASS: 146 ? 163 = 000000000
+ADD Test PASS: 1 + 108 = 001101101
+SUB Test PASS: 1 - 108 = 110010101
+AND Test PASS: 1 & 108 = 000000000
+OR Test PASS: 1 | 108 = 001101101
+XOR Test PASS: 1 ^ 108 = 001101101
+Default Test PASS: 1 ? 108 = 000000000
+ADD Test PASS: 139 + 57 = 011000100
+SUB Test PASS: 139 - 57 = 001010010
+AND Test PASS: 139 & 57 = 000001001
+OR Test PASS: 139 | 57 = 010111011
+XOR Test PASS: 139 ^ 57 = 010110010
+Default Test PASS: 139 ? 57 = 000000000
+ADD Test PASS: 104 + 124 = 011100100
+SUB Test PASS: 104 - 124 = 111101100
+AND Test PASS: 104 & 124 = 001101000
+OR Test PASS: 104 | 124 = 001111100
+XOR Test PASS: 104 ^ 124 = 000010100
+Default Test PASS: 104 ? 124 = 000000000
+ADD Test PASS: 145 + 214 = 101100111
+SUB Test PASS: 145 - 214 = 110111011
+AND Test PASS: 145 & 214 = 010010000
+OR Test PASS: 145 | 214 = 011010111
+XOR Test PASS: 145 ^ 214 = 001000111
+Default Test PASS: 145 ? 214 = 000000000
+ADD Test PASS: 17 + 88 = 001101001
+SUB Test PASS: 17 - 88 = 110111001
+AND Test PASS: 17 & 88 = 000010000
+OR Test PASS: 17 | 88 = 001011001
+XOR Test PASS: 17 ^ 88 = 001001001
+Default Test PASS: 17 ? 88 = 000000000
+ADD Test PASS: 53 + 3 = 000111000
+SUB Test PASS: 53 - 3 = 000110010
+AND Test PASS: 53 & 3 = 000000001
+OR Test PASS: 53 | 3 = 000110111
+XOR Test PASS: 53 ^ 3 = 000110110
+Default Test PASS: 53 ? 3 = 000000000
+ADD Test PASS: 222 + 30 = 011111100
+SUB Test PASS: 222 - 30 = 011000000
+AND Test PASS: 222 & 30 = 000011110
+OR Test PASS: 222 | 30 = 011011110
+XOR Test PASS: 222 ^ 30 = 011000000
+Default Test PASS: 222 ? 30 = 000000000
+ADD Test PASS: 104 + 145 = 011111001
+SUB Test PASS: 104 - 145 = 111010111
+AND Test PASS: 104 & 145 = 000000000
+OR Test PASS: 104 | 145 = 011111001
+XOR Test PASS: 104 ^ 145 = 011111001
+Default Test PASS: 104 ? 145 = 000000000
+ADD Test PASS: 41 + 131 = 010101100
+SUB Test PASS: 41 - 131 = 110100110
+AND Test PASS: 41 & 131 = 000000001
+OR Test PASS: 41 | 131 = 010101011
+XOR Test PASS: 41 ^ 131 = 010101010
+Default Test PASS: 41 ? 131 = 000000000
+ADD Test PASS: 18 + 60 = 001001110
+SUB Test PASS: 18 - 60 = 111010110
+AND Test PASS: 18 & 60 = 000010000
+OR Test PASS: 18 | 60 = 000111110
+XOR Test PASS: 18 ^ 60 = 000101110
+Default Test PASS: 18 ? 60 = 000000000
+ADD Test PASS: 40 + 38 = 001001110
+SUB Test PASS: 40 - 38 = 000000010
+AND Test PASS: 40 & 38 = 000100000
+OR Test PASS: 40 | 38 = 000101110
+XOR Test PASS: 40 ^ 38 = 000001110
+Default Test PASS: 40 ? 38 = 000000000
+ADD Test PASS: 204 + 120 = 101000100
+SUB Test PASS: 204 - 120 = 001010100
+AND Test PASS: 204 & 120 = 001001000
+OR Test PASS: 204 | 120 = 011111100
+XOR Test PASS: 204 ^ 120 = 010110100
+Default Test PASS: 204 ? 120 = 000000000
+ADD Test PASS: 21 + 252 = 100010001
+SUB Test PASS: 21 - 252 = 100011001
+AND Test PASS: 21 & 252 = 000010100
+OR Test PASS: 21 | 252 = 011111101
+XOR Test PASS: 21 ^ 252 = 011101001
+Default Test PASS: 21 ? 252 = 000000000
+ADD Test PASS: 0 + 229 = 011100101
+SUB Test PASS: 0 - 229 = 100011011
+AND Test PASS: 0 & 229 = 000000000
+OR Test PASS: 0 | 229 = 011100101
+XOR Test PASS: 0 ^ 229 = 011100101
+Default Test PASS: 0 ? 229 = 000000000
+ADD Test PASS: 67 + 145 = 011010100
+SUB Test PASS: 67 - 145 = 110110010
+AND Test PASS: 67 & 145 = 000000001
+OR Test PASS: 67 | 145 = 011010011
+XOR Test PASS: 67 ^ 145 = 011010010
+Default Test PASS: 67 ? 145 = 000000000
+ADD Test PASS: 192 + 51 = 011110011
+SUB Test PASS: 192 - 51 = 010001101
+AND Test PASS: 192 & 51 = 000000000
+OR Test PASS: 192 | 51 = 011110011
+XOR Test PASS: 192 ^ 51 = 011110011
+Default Test PASS: 192 ? 51 = 000000000
+ADD Test PASS: 250 + 32 = 100011010
+SUB Test PASS: 250 - 32 = 011011010
+AND Test PASS: 250 & 32 = 000100000
+OR Test PASS: 250 | 32 = 011111010
+XOR Test PASS: 250 ^ 32 = 011011010
+Default Test PASS: 250 ? 32 = 000000000
+ADD Test PASS: 168 + 112 = 100011000
+SUB Test PASS: 168 - 112 = 000111000
+AND Test PASS: 168 & 112 = 000100000
+OR Test PASS: 168 | 112 = 011111000
+XOR Test PASS: 168 ^ 112 = 011011000
+Default Test PASS: 168 ? 112 = 000000000
+ADD Test PASS: 231 + 191 = 110100110
+SUB Test PASS: 231 - 191 = 000101000
+AND Test PASS: 231 & 191 = 010100111
+OR Test PASS: 231 | 191 = 011111111
+XOR Test PASS: 231 ^ 191 = 001011000
+Default Test PASS: 231 ? 191 = 000000000
+ADD Test PASS: 195 + 191 = 110000010
+SUB Test PASS: 195 - 191 = 000000100
+AND Test PASS: 195 & 191 = 010000011
+OR Test PASS: 195 | 191 = 011111111
+XOR Test PASS: 195 ^ 191 = 001111100
+Default Test PASS: 195 ? 191 = 000000000
+ADD Test PASS: 107 + 148 = 011111111
+SUB Test PASS: 107 - 148 = 111010111
+AND Test PASS: 107 & 148 = 000000000
+OR Test PASS: 107 | 148 = 011111111
+XOR Test PASS: 107 ^ 148 = 011111111
+Default Test PASS: 107 ? 148 = 000000000
+ADD Test PASS: 244 + 138 = 101111110
+SUB Test PASS: 244 - 138 = 001101010
+AND Test PASS: 244 & 138 = 010000000
+OR Test PASS: 244 | 138 = 011111110
+XOR Test PASS: 244 ^ 138 = 001111110
+Default Test PASS: 244 ? 138 = 000000000
+ADD Test PASS: 199 + 119 = 100111110
+SUB Test PASS: 199 - 119 = 001010000
+AND Test PASS: 199 & 119 = 001000111
+OR Test PASS: 199 | 119 = 011110111
+XOR Test PASS: 199 ^ 119 = 010110000
+Default Test PASS: 199 ? 119 = 000000000
+ADD Test PASS: 63 + 229 = 100100100
+SUB Test PASS: 63 - 229 = 101011010
+AND Test PASS: 63 & 229 = 000100101
+OR Test PASS: 63 | 229 = 011111111
+XOR Test PASS: 63 ^ 229 = 011011010
+Default Test PASS: 63 ? 229 = 000000000
+ADD Test PASS: 59 + 78 = 010001001
+SUB Test PASS: 59 - 78 = 111101101
+AND Test PASS: 59 & 78 = 000001010
+OR Test PASS: 59 | 78 = 001111111
+XOR Test PASS: 59 ^ 78 = 001110101
+Default Test PASS: 59 ? 78 = 000000000
+ADD Test PASS: 214 + 246 = 111001100
+SUB Test PASS: 214 - 246 = 111100000
+AND Test PASS: 214 & 246 = 011010110
+OR Test PASS: 214 | 246 = 011110110
+XOR Test PASS: 214 ^ 246 = 000100000
+Default Test PASS: 214 ? 246 = 000000000
+ADD Test PASS: 129 + 171 = 100101100
+SUB Test PASS: 129 - 171 = 111010110
+AND Test PASS: 129 & 171 = 010000001
+OR Test PASS: 129 | 171 = 010101011
+XOR Test PASS: 129 ^ 171 = 000101010
+Default Test PASS: 129 ? 171 = 000000000
+ADD Test PASS: 219 + 18 = 011101101
+SUB Test PASS: 219 - 18 = 011001001
+AND Test PASS: 219 & 18 = 000010010
+OR Test PASS: 219 | 18 = 011011011
+XOR Test PASS: 219 ^ 18 = 011001001
+Default Test PASS: 219 ? 18 = 000000000
+ADD Test PASS: 224 + 49 = 100010001
+SUB Test PASS: 224 - 49 = 010101111
+AND Test PASS: 224 & 49 = 000100000
+OR Test PASS: 224 | 49 = 011110001
+XOR Test PASS: 224 ^ 49 = 011010001
+Default Test PASS: 224 ? 49 = 000000000
+ADD Test PASS: 160 + 214 = 101110110
+SUB Test PASS: 160 - 214 = 111001010
+AND Test PASS: 160 & 214 = 010000000
+OR Test PASS: 160 | 214 = 011110110
+XOR Test PASS: 160 ^ 214 = 001110110
+Default Test PASS: 160 ? 214 = 000000000
+ADD Test PASS: 206 + 58 = 100001000
+SUB Test PASS: 206 - 58 = 010010100
+AND Test PASS: 206 & 58 = 000001010
+OR Test PASS: 206 | 58 = 011111110
+XOR Test PASS: 206 ^ 58 = 011110100
+Default Test PASS: 206 ? 58 = 000000000
+ADD Test PASS: 116 + 225 = 101010101
+SUB Test PASS: 116 - 225 = 110010011
+AND Test PASS: 116 & 225 = 001100000
+OR Test PASS: 116 | 225 = 011110101
+XOR Test PASS: 116 ^ 225 = 010010101
+Default Test PASS: 116 ? 225 = 000000000
+ADD Test PASS: 134 + 24 = 010011110
+SUB Test PASS: 134 - 24 = 001101110
+AND Test PASS: 134 & 24 = 000000000
+OR Test PASS: 134 | 24 = 010011110
+XOR Test PASS: 134 ^ 24 = 010011110
+Default Test PASS: 134 ? 24 = 000000000
+ADD Test PASS: 72 + 193 = 100001001
+SUB Test PASS: 72 - 193 = 110000111
+AND Test PASS: 72 & 193 = 001000000
+OR Test PASS: 72 | 193 = 011001001
+XOR Test PASS: 72 ^ 193 = 010001001
+Default Test PASS: 72 ? 193 = 000000000
+ADD Test PASS: 139 + 162 = 100101101
+SUB Test PASS: 139 - 162 = 111101001
+AND Test PASS: 139 & 162 = 010000010
+OR Test PASS: 139 | 162 = 010101011
+XOR Test PASS: 139 ^ 162 = 000101001
+Default Test PASS: 139 ? 162 = 000000000
+ADD Test PASS: 121 + 204 = 101000101
+SUB Test PASS: 121 - 204 = 110101101
+AND Test PASS: 121 & 204 = 001001000
+OR Test PASS: 121 | 204 = 011111101
+XOR Test PASS: 121 ^ 204 = 010110101
+Default Test PASS: 121 ? 204 = 000000000
+ADD Test PASS: 108 + 236 = 101011000
+SUB Test PASS: 108 - 236 = 110000000
+AND Test PASS: 108 & 236 = 001101100
+OR Test PASS: 108 | 236 = 011101100
+XOR Test PASS: 108 ^ 236 = 010000000
+Default Test PASS: 108 ? 236 = 000000000
+ADD Test PASS: 116 + 238 = 101100010
+SUB Test PASS: 116 - 238 = 110000110
+AND Test PASS: 116 & 238 = 001100100
+OR Test PASS: 116 | 238 = 011111110
+XOR Test PASS: 116 ^ 238 = 010011010
+Default Test PASS: 116 ? 238 = 000000000
+ADD Test PASS: 91 + 3 = 001011110
+SUB Test PASS: 91 - 3 = 001011000
+AND Test PASS: 91 & 3 = 000000011
+OR Test PASS: 91 | 3 = 001011011
+XOR Test PASS: 91 ^ 3 = 001011000
+Default Test PASS: 91 ? 3 = 000000000
+ADD Test PASS: 77 + 137 = 011010110
+SUB Test PASS: 77 - 137 = 111000100
+AND Test PASS: 77 & 137 = 000001001
+OR Test PASS: 77 | 137 = 011001101
+XOR Test PASS: 77 ^ 137 = 011000100
+Default Test PASS: 77 ? 137 = 000000000
+ADD Test PASS: 177 + 111 = 100100000
+SUB Test PASS: 177 - 111 = 001000010
+AND Test PASS: 177 & 111 = 000100001
+OR Test PASS: 177 | 111 = 011111111
+XOR Test PASS: 177 ^ 111 = 011011110
+Default Test PASS: 177 ? 111 = 000000000
+ADD Test PASS: 213 + 113 = 101000110
+SUB Test PASS: 213 - 113 = 001100100
+AND Test PASS: 213 & 113 = 001010001
+OR Test PASS: 213 | 113 = 011110101
+XOR Test PASS: 213 ^ 113 = 010100100
+Default Test PASS: 213 ? 113 = 000000000
+ADD Test PASS: 202 + 4 = 011001110
+SUB Test PASS: 202 - 4 = 011000110
+AND Test PASS: 202 & 4 = 000000000
+OR Test PASS: 202 | 4 = 011001110
+XOR Test PASS: 202 ^ 4 = 011001110
+Default Test PASS: 202 ? 4 = 000000000
+ADD Test PASS: 118 + 63 = 010110101
+SUB Test PASS: 118 - 63 = 000110111
+AND Test PASS: 118 & 63 = 000110110
+OR Test PASS: 118 | 63 = 001111111
+XOR Test PASS: 118 ^ 63 = 001001001
+Default Test PASS: 118 ? 63 = 000000000
+ADD Test PASS: 22 + 150 = 010101100
+SUB Test PASS: 22 - 150 = 110000000
+AND Test PASS: 22 & 150 = 000010110
+OR Test PASS: 22 | 150 = 010010110
+XOR Test PASS: 22 ^ 150 = 010000000
+Default Test PASS: 22 ? 150 = 000000000
+ADD Test PASS: 49 + 50 = 001100011
+SUB Test PASS: 49 - 50 = 111111111
+AND Test PASS: 49 & 50 = 000110000
+OR Test PASS: 49 | 50 = 000110011
+XOR Test PASS: 49 ^ 50 = 000000011
+Default Test PASS: 49 ? 50 = 000000000
+ADD Test PASS: 44 + 21 = 001000001
+SUB Test PASS: 44 - 21 = 000010111
+AND Test PASS: 44 & 21 = 000000100
+OR Test PASS: 44 | 21 = 000111101
+XOR Test PASS: 44 ^ 21 = 000111001
+Default Test PASS: 44 ? 21 = 000000000
+ADD Test PASS: 181 + 31 = 011010100
+SUB Test PASS: 181 - 31 = 010010110
+AND Test PASS: 181 & 31 = 000010101
+OR Test PASS: 181 | 31 = 010111111
+XOR Test PASS: 181 ^ 31 = 010101010
+Default Test PASS: 181 ? 31 = 000000000
+ADD Test PASS: 60 + 241 = 100101101
+SUB Test PASS: 60 - 241 = 101001011
+AND Test PASS: 60 & 241 = 000110000
+OR Test PASS: 60 | 241 = 011111101
+XOR Test PASS: 60 ^ 241 = 011001101
+Default Test PASS: 60 ? 241 = 000000000
+ADD Test PASS: 236 + 18 = 011111110
+SUB Test PASS: 236 - 18 = 011011010
+AND Test PASS: 236 & 18 = 000000000
+OR Test PASS: 236 | 18 = 011111110
+XOR Test PASS: 236 ^ 18 = 011111110
+Default Test PASS: 236 ? 18 = 000000000
+ADD Test PASS: 10 + 172 = 010110110
+SUB Test PASS: 10 - 172 = 101011110
+AND Test PASS: 10 & 172 = 000001000
+OR Test PASS: 10 | 172 = 010101110
+XOR Test PASS: 10 ^ 172 = 010100110
+Default Test PASS: 10 ? 172 = 000000000
+ADD Test PASS: 77 + 51 = 010000000
+SUB Test PASS: 77 - 51 = 000011010
+AND Test PASS: 77 & 51 = 000000001
+OR Test PASS: 77 | 51 = 001111111
+XOR Test PASS: 77 ^ 51 = 001111110
+Default Test PASS: 77 ? 51 = 000000000
+ADD Test PASS: 194 + 90 = 100011100
+SUB Test PASS: 194 - 90 = 001101000
+AND Test PASS: 194 & 90 = 001000010
+OR Test PASS: 194 | 90 = 011011010
+XOR Test PASS: 194 ^ 90 = 010011000
+Default Test PASS: 194 ? 90 = 000000000
+ADD Test PASS: 4 + 195 = 011000111
+SUB Test PASS: 4 - 195 = 101000001
+AND Test PASS: 4 & 195 = 000000000
+OR Test PASS: 4 | 195 = 011000111
+XOR Test PASS: 4 ^ 195 = 011000111
+Default Test PASS: 4 ? 195 = 000000000
+ADD Test PASS: 18 + 3 = 000010101
+SUB Test PASS: 18 - 3 = 000001111
+AND Test PASS: 18 & 3 = 000000010
+OR Test PASS: 18 | 3 = 000010011
+XOR Test PASS: 18 ^ 3 = 000010001
+Default Test PASS: 18 ? 3 = 000000000
+ADD Test PASS: 6 + 196 = 011001010
+SUB Test PASS: 6 - 196 = 101000010
+AND Test PASS: 6 & 196 = 000000100
+OR Test PASS: 6 | 196 = 011000110
+XOR Test PASS: 6 ^ 196 = 011000010
+Default Test PASS: 6 ? 196 = 000000000
+ADD Test PASS: 0 + 218 = 011011010
+SUB Test PASS: 0 - 218 = 100100110
+AND Test PASS: 0 & 218 = 000000000
+OR Test PASS: 0 | 218 = 011011010
+XOR Test PASS: 0 ^ 218 = 011011010
+Default Test PASS: 0 ? 218 = 000000000
+ADD Test PASS: 215 + 35 = 011111010
+SUB Test PASS: 215 - 35 = 010110100
+AND Test PASS: 215 & 35 = 000000011
+OR Test PASS: 215 | 35 = 011110111
+XOR Test PASS: 215 ^ 35 = 011110100
+Default Test PASS: 215 ? 35 = 000000000
+ADD Test PASS: 138 + 100 = 011101110
+SUB Test PASS: 138 - 100 = 000100110
+AND Test PASS: 138 & 100 = 000000000
+OR Test PASS: 138 | 100 = 011101110
+XOR Test PASS: 138 ^ 100 = 011101110
+Default Test PASS: 138 ? 100 = 000000000
+ADD Test PASS: 30 + 118 = 010010100
+SUB Test PASS: 30 - 118 = 110101000
+AND Test PASS: 30 & 118 = 000010110
+OR Test PASS: 30 | 118 = 001111110
+XOR Test PASS: 30 ^ 118 = 001101000
+Default Test PASS: 30 ? 118 = 000000000
+ADD Test PASS: 143 + 117 = 100000100
+SUB Test PASS: 143 - 117 = 000011010
+AND Test PASS: 143 & 117 = 000000101
+OR Test PASS: 143 | 117 = 011111111
+XOR Test PASS: 143 ^ 117 = 011111010
+Default Test PASS: 143 ? 117 = 000000000
+ADD Test PASS: 49 + 227 = 100010100
+SUB Test PASS: 49 - 227 = 101001110
+AND Test PASS: 49 & 227 = 000100001
+OR Test PASS: 49 | 227 = 011110011
+XOR Test PASS: 49 ^ 227 = 011010010
+Default Test PASS: 49 ? 227 = 000000000
+ADD Test PASS: 174 + 72 = 011110110
+SUB Test PASS: 174 - 72 = 001100110
+AND Test PASS: 174 & 72 = 000001000
+OR Test PASS: 174 | 72 = 011101110
+XOR Test PASS: 174 ^ 72 = 011100110
+Default Test PASS: 174 ? 72 = 000000000
+ADD Test PASS: 73 + 189 = 100000110
+SUB Test PASS: 73 - 189 = 110001100
+AND Test PASS: 73 & 189 = 000001001
+OR Test PASS: 73 | 189 = 011111101
+XOR Test PASS: 73 ^ 189 = 011110100
+Default Test PASS: 73 ? 189 = 000000000
+ADD Test PASS: 246 + 171 = 110100001
+SUB Test PASS: 246 - 171 = 001001011
+AND Test PASS: 246 & 171 = 010100010
+OR Test PASS: 246 | 171 = 011111111
+XOR Test PASS: 246 ^ 171 = 001011101
+Default Test PASS: 246 ? 171 = 000000000
+ADD Test PASS: 99 + 170 = 100001101
+SUB Test PASS: 99 - 170 = 110111001
+AND Test PASS: 99 & 170 = 000100010
+OR Test PASS: 99 | 170 = 011101011
+XOR Test PASS: 99 ^ 170 = 011001001
+Default Test PASS: 99 ? 170 = 000000000
+ADD Test PASS: 23 + 107 = 010000010
+SUB Test PASS: 23 - 107 = 110101100
+AND Test PASS: 23 & 107 = 000000011
+OR Test PASS: 23 | 107 = 001111111
+XOR Test PASS: 23 ^ 107 = 001111100
+Default Test PASS: 23 ? 107 = 000000000
+ADD Test PASS: 220 + 85 = 100110001
+SUB Test PASS: 220 - 85 = 010000111
+AND Test PASS: 220 & 85 = 001010100
+OR Test PASS: 220 | 85 = 011011101
+XOR Test PASS: 220 ^ 85 = 010001001
+Default Test PASS: 220 ? 85 = 000000000
+ADD Test PASS: 85 + 177 = 100000110
+SUB Test PASS: 85 - 177 = 110100100
+AND Test PASS: 85 & 177 = 000010001
+OR Test PASS: 85 | 177 = 011110101
+XOR Test PASS: 85 ^ 177 = 011100100
+Default Test PASS: 85 ? 177 = 000000000
+ADD Test PASS: 43 + 83 = 001111110
+SUB Test PASS: 43 - 83 = 111011000
+AND Test PASS: 43 & 83 = 000000011
+OR Test PASS: 43 | 83 = 001111011
+XOR Test PASS: 43 ^ 83 = 001111000
+Default Test PASS: 43 ? 83 = 000000000
+ADD Test PASS: 32 + 190 = 011011110
+SUB Test PASS: 32 - 190 = 101100010
+AND Test PASS: 32 & 190 = 000100000
+OR Test PASS: 32 | 190 = 010111110
+XOR Test PASS: 32 ^ 190 = 010011110
+Default Test PASS: 32 ? 190 = 000000000
+ADD Test PASS: 164 + 64 = 011100100
+SUB Test PASS: 164 - 64 = 001100100
+AND Test PASS: 164 & 64 = 000000000
+OR Test PASS: 164 | 64 = 011100100
+XOR Test PASS: 164 ^ 64 = 011100100
+Default Test PASS: 164 ? 64 = 000000000
+ADD Test PASS: 135 + 17 = 010011000
+SUB Test PASS: 135 - 17 = 001110110
+AND Test PASS: 135 & 17 = 000000001
+OR Test PASS: 135 | 17 = 010010111
+XOR Test PASS: 135 ^ 17 = 010010110
+Default Test PASS: 135 ? 17 = 000000000
+ADD Test PASS: 183 + 173 = 101100100
+SUB Test PASS: 183 - 173 = 000001010
+AND Test PASS: 183 & 173 = 010100101
+OR Test PASS: 183 | 173 = 010111111
+XOR Test PASS: 183 ^ 173 = 000011010
+Default Test PASS: 183 ? 173 = 000000000
+ADD Test PASS: 164 + 81 = 011110101
+SUB Test PASS: 164 - 81 = 001010011
+AND Test PASS: 164 & 81 = 000000000
+OR Test PASS: 164 | 81 = 011110101
+XOR Test PASS: 164 ^ 81 = 011110101
+Default Test PASS: 164 ? 81 = 000000000
+ADD Test PASS: 248 + 146 = 110001010
+SUB Test PASS: 248 - 146 = 001100110
+AND Test PASS: 248 & 146 = 010010000
+OR Test PASS: 248 | 146 = 011111010
+XOR Test PASS: 248 ^ 146 = 001101010
+Default Test PASS: 248 ? 146 = 000000000
+ADD Test PASS: 39 + 22 = 000111101
+SUB Test PASS: 39 - 22 = 000010001
+AND Test PASS: 39 & 22 = 000000110
+OR Test PASS: 39 | 22 = 000110111
+XOR Test PASS: 39 ^ 22 = 000110001
+Default Test PASS: 39 ? 22 = 000000000
+ADD Test PASS: 165 + 195 = 101101000
+SUB Test PASS: 165 - 195 = 111100010
+AND Test PASS: 165 & 195 = 010000001
+OR Test PASS: 165 | 195 = 011100111
+XOR Test PASS: 165 ^ 195 = 001100110
+Default Test PASS: 165 ? 195 = 000000000
+ADD Test PASS: 77 + 66 = 010001111
+SUB Test PASS: 77 - 66 = 000001011
+AND Test PASS: 77 & 66 = 001000000
+OR Test PASS: 77 | 66 = 001001111
+XOR Test PASS: 77 ^ 66 = 000001111
+Default Test PASS: 77 ? 66 = 000000000
+ADD Test PASS: 128 + 123 = 011111011
+SUB Test PASS: 128 - 123 = 000000101
+AND Test PASS: 128 & 123 = 000000000
+OR Test PASS: 128 | 123 = 011111011
+XOR Test PASS: 128 ^ 123 = 011111011
+Default Test PASS: 128 ? 123 = 000000000
+ADD Test PASS: 70 + 52 = 001111010
+SUB Test PASS: 70 - 52 = 000010010
+AND Test PASS: 70 & 52 = 000000100
+OR Test PASS: 70 | 52 = 001110110
+XOR Test PASS: 70 ^ 52 = 001110010
+Default Test PASS: 70 ? 52 = 000000000
+ADD Test PASS: 167 + 87 = 011111110
+SUB Test PASS: 167 - 87 = 001010000
+AND Test PASS: 167 & 87 = 000000111
+OR Test PASS: 167 | 87 = 011110111
+XOR Test PASS: 167 ^ 87 = 011110000
+Default Test PASS: 167 ? 87 = 000000000
+ADD Test PASS: 241 + 22 = 100000111
+SUB Test PASS: 241 - 22 = 011011011
+AND Test PASS: 241 & 22 = 000010000
+OR Test PASS: 241 | 22 = 011110111
+XOR Test PASS: 241 ^ 22 = 011100111
+Default Test PASS: 241 ? 22 = 000000000
+ADD Test PASS: 246 + 213 = 111001011
+SUB Test PASS: 246 - 213 = 000100001
+AND Test PASS: 246 & 213 = 011010100
+OR Test PASS: 246 | 213 = 011110111
+XOR Test PASS: 246 ^ 213 = 000100011
+Default Test PASS: 246 ? 213 = 000000000
+NO. Pass = 600
+NO. Fail = 0
+  6015.00ns INFO     cocotb.regression                  test_alu passed
+  6015.00ns INFO     cocotb.regression                  **************************************************************************************
+                                                        ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        **************************************************************************************
+                                                        ** tb.test_alu                    PASS        6015.00           0.27      22178.59  **
+                                                        **************************************************************************************
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0               6015.00           0.28      21111.44  **
+                                                        **************************************************************************************
+                                                        
+/home/runner/tb.py:13: DeprecationWarning: cocotb.fork has been deprecated in favor of cocotb.start_soon and cocotb.start.
+In most cases you can simply substitute cocotb.fork with cocotb.start_soon.
+For more information about when you would want to use cocotb.start see the docs,
+https://docs.cocotb.org/en/latest/coroutines.html#concurrent-execution
+  cocotb.fork(clock.start())
+/home/runner/tb.py:17: DeprecationWarning: Setting values on handles using the ``handle <= value`` syntax is deprecated. Instead use the ``handle.value = value`` syntax
+  dut.rst_n <= 0
+/home/runner/tb.py:19: DeprecationWarning: Setting values on handles using the ``handle <= value`` syntax is deprecated. Instead use the ``handle.value = value`` syntax
+  dut.rst_n <= 1
+/home/runner/tb.py:29: DeprecationWarning: Setting values on handles using the ``handle <= value`` syntax is deprecated. Instead use the ``handle.value = value`` syntax
+  dut.opcode <= 0b0000  # Opcode for ADD
+/home/runner/tb.py:30: DeprecationWarning: Setting values on handles using the ``handle <= value`` syntax is deprecated. Instead use the ``handle.value = value`` syntax
+  dut.A <= A
+/home/runner/tb.py:31: DeprecationWarning: Setting values on handles using the ``handle <= value`` syntax is deprecated. Instead use the ``handle.value = value`` syntax
+  dut.B <= B
+/home/runner/tb.py:47: DeprecationWarning: Setting values on handles using the ``handle <= value`` syntax is deprecated. Instead use the ``handle.value = value`` syntax
+  dut.opcode <= 0b0001  # Opcode for SUB
+/home/runner/tb.py:48: DeprecationWarning: Setting values on handles using the ``handle <= value`` syntax is deprecated. Instead use the ``handle.value = value`` syntax
+  dut.A <= A
+/home/runner/tb.py:49: DeprecationWarning: Setting values on handles using the ``handle <= value`` syntax is deprecated. Instead use the ``handle.value = value`` syntax
+  dut.B <= B
+/home/runner/tb.py:68: DeprecationWarning: Setting values on handles using the ``handle <= value`` syntax is deprecated. Instead use the ``handle.value = value`` syntax
+  dut.opcode <= 0b0010  # Opcode for AND
+/home/runner/tb.py:69: DeprecationWarning: Setting values on handles using the ``handle <= value`` syntax is deprecated. Instead use the ``handle.value = value`` syntax
+  dut.A <= A
+/home/runner/tb.py:70: DeprecationWarning: Setting values on handles using the ``handle <= value`` syntax is deprecated. Instead use the ``handle.value = value`` syntax
+  dut.B <= B
+/home/runner/tb.py:86: DeprecationWarning: Setting values on handles using the ``handle <= value`` syntax is deprecated. Instead use the ``handle.value = value`` syntax
+  dut.opcode <= 0b0011  # Opcode for OR
+/home/runner/tb.py:87: DeprecationWarning: Setting values on handles using the ``handle <= value`` syntax is deprecated. Instead use the ``handle.value = value`` syntax
+  dut.A <= A
+/home/runner/tb.py:88: DeprecationWarning: Setting values on handles using the ``handle <= value`` syntax is deprecated. Instead use the ``handle.value = value`` syntax
+  dut.B <= B
+/home/runner/tb.py:104: DeprecationWarning: Setting values on handles using the ``handle <= value`` syntax is deprecated. Instead use the ``handle.value = value`` syntax
+  dut.opcode <= 0b0100  # Opcode for XOR
+/home/runner/tb.py:105: DeprecationWarning: Setting values on handles using the ``handle <= value`` syntax is deprecated. Instead use the ``handle.value = value`` syntax
+  dut.A <= A
+/home/runner/tb.py:106: DeprecationWarning: Setting values on handles using the ``handle <= value`` syntax is deprecated. Instead use the ``handle.value = value`` syntax
+  dut.B <= B
+/home/runner/tb.py:122: DeprecationWarning: Setting values on handles using the ``handle <= value`` syntax is deprecated. Instead use the ``handle.value = value`` syntax
+  dut.opcode <= 0b1111  # Opcode for default operation
+/home/runner/tb.py:123: DeprecationWarning: Setting values on handles using the ``handle <= value`` syntax is deprecated. Instead use the ``handle.value = value`` syntax
+  dut.A <= A
+/home/runner/tb.py:124: DeprecationWarning: Setting values on handles using the ``handle <= value`` syntax is deprecated. Instead use the ``handle.value = value`` syntax
+  dut.B <= B
+Simulation complete via $finish(1) at time 6015001 PS + 0
+xcelium> exit
+TOOL:	xrun(64)	23.09-s001: Exiting on Sep 19, 2024 at 13:32:55 EDT  (total: 00:00:02)
+make[1]: Leaving directory `/home/runner'
+Done
